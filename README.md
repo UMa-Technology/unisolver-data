@@ -38,6 +38,10 @@ final manifest = await manager.fetchManifest();
 Anything else can read `manifest-v3.json` directly: download `base_url + key`, check `sha256`,
 decompress the `.zst` files with zstd and check `raw_sha256`.
 
+Behind a proxy, unisolver 0.6.0 and later follow the system proxy settings on desktop. Files
+downloaded another way (a browser, a file-sharing link) can be imported:
+`DbManager.importFile(path)` recognises them by their SHA-256.
+
 ## Licences
 
 Each entry of `manifest-v3.json` carries its own `license` and `attribution`; see [LICENSE.md](LICENSE.md).
